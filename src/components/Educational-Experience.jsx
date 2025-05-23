@@ -13,17 +13,17 @@ function EducationalExperience() {
                     Educational Experience:
                 </legend>
                 <div>
-                    <label for="school-name">School Name:</label>
+                    <label htmlFor="school-name">School Name:</label>
                     <input type="text" id="school-name" onChange={(e) => setSchoolName(e.target.value)} value={schoolName} />
                 </div>
 
                 <div>
-                    <label for="study-title">Title of Study:</label>
+                    <label htmlFor="study-title">Title of Study:</label>
                     <input type="text" id="study-title" onChange={(e) => setStudyTitle(e.target.value)} value={studyTitle} />
                 </div>
 
                 <div>
-                    <label for="study-date">Date of Study:</label>
+                    <label htmlFor="study-date">Date of Study:</label>
                     <input type="date" id="study-date" onChange={(e) => setStudyDate(e.target.value)} value={studyDate} />
                 </div>
 
