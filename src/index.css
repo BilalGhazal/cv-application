@@ -6,3 +6,10 @@ body {
   min-height: 100vh;
 }
 
+input {
+  width: 100%;
+}
+
+fieldset {
+  padding: 50px;
+}
