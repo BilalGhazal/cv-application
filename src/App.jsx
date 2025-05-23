@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import './App.css'
-import GeneralInformation from "./components/general-information-section.jsx"
+import GeneralInformation from "./components/General-Information.jsx"
+import EducationalExperience from "./components/Educational-Experience.jsx"
 
 function App() {
 
   return (
     <>
       <GeneralInformation />
+
+      <EducationalExperience />
     </>
   )
 }
