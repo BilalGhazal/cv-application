@@ -12,7 +12,8 @@ function App() {
     phoneNumber: "",
     schoolName: "",
     studyTitle: "",
-    studyDate: "",
+    studyDateStart: "",
+    studyDateEnd: "",
     companyName: "",
     positionTitle: "",
     jobDescription: "",
@@ -59,12 +60,12 @@ function handleReset() {
           <p>Phone number: {data.phoneNumber}</p>
           <p>School: {data.schoolName}</p>
           <p>Study Title: {data.studyTitle}</p>
-          <p>StudyDate: {data.studyDate}</p>
+          <p>StudyDate: {data.studyDateStart}</p>
           <p>Company Name: {data.companyName}</p>
           <p>Position Title: {data.positionTitle}</p>
           <p>Job Description: {data.jobDescription}</p>
-          <p>Start Date: {data.startDate}</p>
-          <p>End Date: {data.endDate}</p>
+          <p>Start Date: {data.startDate || "unknown"}</p>
+          <p>End Date: {data.endDate || "unknown"}</p>
 
           <button type="button" onClick={() => setIsSubmitted(false)}>Edit</button>
 
@@ -75,7 +76,7 @@ function handleReset() {
 
           <GeneralInformation personalName={data.personalName} email={data.email} phoneNumber={data.phoneNumber} onChange={handleChange} />
 
-          <EducationalExperience schoolName={data.schoolName} studyTitle={data.studyTitle} studyDate={data.studyDate} onChange={handleChange} />
+          <EducationalExperience schoolName={data.schoolName} studyTitle={data.studyTitle} studyDateStart={data.studyDateStart} studyDateEnd={data.studyDateEnd} onChange={handleChange} />
 
           <PracticalExperience companyName={data.companyName} positionTitle={data.positionTitle} jobDescription={data.jobDescription} startDate={data.startDate} endDate={data.endDate} onChange={handleChange} />
 

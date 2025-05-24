@@ -11,17 +11,17 @@ function PracticalExperience({companyName, positionTitle, jobDescription, startD
 
                 <div>
                     <label htmlFor="company-name">Company Name:</label>
-                    <input type="text" id="company-name" onChange={onChange} name="companyName" value={companyName} />
+                    <input type="text" id="company-name" onChange={onChange} name="companyName" value={companyName} required />
                 </div>
 
                 <div>
                     <label htmlFor="position-title">Poition Title:</label>
-                    <input type="text" id="position-title" onChange={onChange} name="positionTitle" value={positionTitle} />
+                    <input type="text" id="position-title" onChange={onChange} name="positionTitle" value={positionTitle} required />
                 </div>
 
                 <div>
                     <label htmlFor="job-description">Job Description:</label>
-                    <input type="text" id="job-description" onChange={onChange} name="jobDescription" value={jobDescription} />
+                    <input type="text" id="job-description" onChange={onChange} name="jobDescription" value={jobDescription} required />
                 </div>
 
                 <div>
