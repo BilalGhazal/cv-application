@@ -1,11 +1,8 @@
 import { useState } from 'react'
 
 
-function EducationalExperience() {
-    const [schoolName, setSchoolName] = useState("")
-    const [studyTitle, setStudyTitle] = useState("")
-    const [studyDate, setStudyDate] = useState("")
-
+function EducationalExperience({schoolName, studyTitle, studyDate, onChange}) {
+    
     return (
         <>
             <fieldset>
@@ -14,17 +11,17 @@ function EducationalExperience() {
                 </legend>
                 <div>
                     <label htmlFor="school-name">School Name:</label>
-                    <input type="text" id="school-name" onChange={(e) => setSchoolName(e.target.value)} value={schoolName} />
+                    <input type="text" id="school-name" onChange={onChange} name="schoolName" value={schoolName} />
                 </div>
 
                 <div>
                     <label htmlFor="study-title">Title of Study:</label>
-                    <input type="text" id="study-title" onChange={(e) => setStudyTitle(e.target.value)} value={studyTitle} />
+                    <input type="text" id="study-title" onChange={onChange} name="studyTitle" value={studyTitle} />
                 </div>
 
                 <div>
                     <label htmlFor="study-date">Date of Study:</label>
-                    <input type="date" id="study-date" onChange={(e) => setStudyDate(e.target.value)} value={studyDate} />
+                    <input type="date" id="study-date" onChange={onChange} name="studyDate" value={studyDate} />
                 </div>
 
             </fieldset>

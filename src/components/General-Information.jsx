@@ -1,10 +1,7 @@
 import { useState } from 'react'
 
 
-function GeneralInformation() {
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [phoneNumber, setPhoneNumber] = useState("")
+function GeneralInformation({personalName, email, phoneNumber, onChange }) {
 
     return (
         <>
@@ -14,17 +11,17 @@ function GeneralInformation() {
                 </legend>
                 <div>
                     <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" onChange={(e) => setName(e.target.value)} value={name} />
+                    <input type="text" id="name" onChange={onChange} name="personalName" value={personalName} />
                 </div>
 
                 <div>
                     <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+                    <input type="email" id="email" onChange={onChange} name="email" value={email} />
                 </div>
 
                 <div>
                     <label htmlFor="phone-number">Phone Number:</label>
-                    <input type="tel" id="phone-number" onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumber} />
+                    <input type="tel" id="phone-number" onChange={onChange} name="phoneNumber" value={phoneNumber} />
                 </div>
 
             </fieldset>
