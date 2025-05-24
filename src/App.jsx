@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './styles/App.css'
 import GeneralInformation from "./components/General-Information.jsx"
 import EducationalExperience from "./components/Educational-Experience.jsx"
 import PracticalExperience from './components/Practical-Experience.jsx'
@@ -14,11 +14,7 @@ function App() {
     studyTitle: "",
     studyDateStart: "",
     studyDateEnd: "",
-    companyName: "",
-    positionTitle: "",
-    jobDescription: "",
-    startDate: "",
-    endDate: ""
+    workExeriences: [{companyName: "", positionTitle: "", jobDescription: "", startDate: "", endDate: ""}]
   })
 
 function handleChange(e) {
@@ -51,38 +47,54 @@ function handleReset() {
 
   return (
     <>
-      <h1>CV Maker</h1>
+      <h1 className="header">CV Maker</h1>
 
       {isSubmitted ? (
-        <>
-          <p>Name: {data.personalName}</p>
-          <p>Email: {data.email}</p>
-          <p>Phone number: {data.phoneNumber}</p>
-          <p>School: {data.schoolName}</p>
-          <p>Study Title: {data.studyTitle}</p>
-          <p>StudyDate: {data.studyDateStart}</p>
-          <p>Company Name: {data.companyName}</p>
-          <p>Position Title: {data.positionTitle}</p>
-          <p>Job Description: {data.jobDescription}</p>
-          <p>Start Date: {data.startDate || "unknown"}</p>
-          <p>End Date: {data.endDate || "unknown"}</p>
+        <div className="main">
+          <div className="information">
+            <div className="personal-information">
+              <p>{data.personalName}</p>
+              <p>{data.email}</p>
+              <p>{data.phoneNumber}</p>
+            </div>
+            
+            <div className="education-information">
+              <p>{data.schoolName}</p>
+              <p>{data.studyTitle}</p>
+              {(data.studyDateStart || data.studyDateEnd) ? <p>{`${data.studyDateStart || "unknown"} - ${data.studyDateEnd || "unknown"}`}</p> : null}
+            </div>
+            
+            <div className="work-information">
+              <p>{data.companyName}</p>
+              <p>{data.positionTitle}</p>
+              {(data.startDate || data.endDate) ? <p>{`${data.startDate || "unknown"} - ${data.endDate = "unknown"}`}</p> : null}
+              <p>{data.jobDescription}</p>
+            </div>
+          </div>
 
           <button type="button" onClick={() => setIsSubmitted(false)}>Edit</button>
 
-        </>
+        </div>
       ) : (
 
-        <form onSubmit={handleSubmission} required>
+        <form onSubmit={handleSubmission}>
 
-          <GeneralInformation personalName={data.personalName} email={data.email} phoneNumber={data.phoneNumber} onChange={handleChange} />
+          <div className="fieldsets">
 
-          <EducationalExperience schoolName={data.schoolName} studyTitle={data.studyTitle} studyDateStart={data.studyDateStart} studyDateEnd={data.studyDateEnd} onChange={handleChange} />
+            <GeneralInformation personalName={data.personalName} email={data.email} phoneNumber={data.phoneNumber} onChange={handleChange} />
 
-          <PracticalExperience companyName={data.companyName} positionTitle={data.positionTitle} jobDescription={data.jobDescription} startDate={data.startDate} endDate={data.endDate} onChange={handleChange} />
+            <EducationalExperience schoolName={data.schoolName} studyTitle={data.studyTitle} studyDateStart={data.studyDateStart} studyDateEnd={data.studyDateEnd} onChange={handleChange} />
 
-          <button>Submit</button>
+            <PracticalExperience companyName={data.companyName} positionTitle={data.positionTitle} jobDescription={data.jobDescription} startDate={data.startDate} endDate={data.endDate} onChange={handleChange} />
 
-          <button type="button" onClick={handleReset}>Reset</button>
+          </div>
+          
+          <div className="buttons">
+            <button>Submit</button>
+
+            <button type="button" onClick={handleReset}>Reset</button>
+          </div>
+          
 
         </form>
       )}
